@@ -1,11 +1,23 @@
 package com.example.ems.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Employee {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
     private String department;
+
+    // Required by JPA
+    public Employee() {
+    }
 
     public Employee(Long id, String name, String email, String department) {
         this.id = id;
